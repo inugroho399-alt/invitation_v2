@@ -6,6 +6,7 @@ import Countdown from './Countdown';
 import RSVPModal from './RSVPModal';
 import GiftSection from './GiftSection';
 import { RSVPData } from '@/lib/supabaseClient';
+import { weddingConfig } from '@/lib/weddingConfig';
 
 interface InvitationMainProps {
   initialRsvps: RSVPData[];
@@ -130,12 +131,12 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                         </div>
                         <div className={`d-flex justify-content-center align-items-center ${isOpening ? 'reveal-scale reveal-d1Out' : ''}`} style={{ height: 'calc(100% + 60px)', width: 'calc(100% + 60px)', backgroundSize: 'cover', margin: '-30px', padding: '30px' }}>
                           <div style={{ width: '100%' }}>
-                            <div className={`text-center editable mb-4 ${contentVisible ? 'reveal-top reveal-d1' : 'opacity-0'}`} style={{ fontSize: '20px' }}>Senin<br />12 Mei 2025</div>
+                            <div className={`text-center editable mb-4 ${contentVisible ? 'reveal-top reveal-d1' : 'opacity-0'}`} style={{ fontSize: '20px' }}>{weddingConfig.resepsi.dayName}<br />{weddingConfig.resepsi.dateStr} {weddingConfig.resepsi.monthStr} {weddingConfig.resepsi.yearStr}</div>
                             <div className={`text-center mb-3 image-editable ${contentVisible ? 'reveal-scale reveal-d2' : 'opacity-0'}`}>
                               <img src="/assets/couple-graphic.png" className="mx-auto d-block" style={{ width: '70%' }} alt="couple" />
                             </div>
                             <div className={`text-center mb-5 ${contentVisible ? 'reveal-bottom reveal-d3' : 'opacity-0'}`}>
-                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px' }}>Imam &amp; Hitna</div>
+                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px' }}>{weddingConfig.groom.nickname} &amp; {weddingConfig.bride.nickname}</div>
                               <div className="editable" style={{ fontSize: '15px' }}>SAVE THE DATE</div>
                             </div>
                             <div className="text-center mx-auto" style={{ maxWidth: '300px' }}>
@@ -164,8 +165,8 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                         <div key={slideKey} className="d-flex flex-column justify-content-center align-items-center" style={{ height: '100%' }}>
                           <div className="reveal-top reveal-d1 mb-4" style={{ border: '3px solid var(--inv-border)', padding: '0.1rem', borderRadius: '1.3rem' }}>
                             <div className="d-flex justify-content-center" style={{ border: '2px solid var(--inv-border)', borderRadius: '1rem', maxWidth: '65px', padding: '20px 5px' }}>
-                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(10px, -10px)' }}>i</div>
-                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(-10px, 10px)' }}>h</div>
+                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(10px, -10px)' }}>{weddingConfig.groom.initial}</div>
+                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(-10px, 10px)' }}>{weddingConfig.bride.initial}</div>
                             </div>
                           </div>
                           <div className="reveal-bottom reveal-d2">
@@ -197,13 +198,13 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             <div className="editable text-center reveal-top reveal-d2" style={{ fontSize: '14.4px' }}>Dengan memohon Rahmat<br />dan Ridho Allah Subhanahu wa ta'ala kami bermaksud menyelenggarakan Ngunduh Mantu<br />Pernikahan Putra-Putri kami</div>
                             <div className="mt-4">
                               <div className="text-center reveal-left reveal-d3" style={{ position: 'relative' }}>
-                                <div className="editable color-accent h4 mb-2 font-weight-bold" style={{ fontSize: '16px' }}>Muchammad Imam Al-Bajuri, S.Hum.</div>
-                                <div className="editable" style={{ fontSize: '14.4px' }}>Putra dari<br />Bapak H. Muh. Choiri, S.Ag.<br />&amp; Almh. Ibu Hj. Arifah Billah<br />PP. Al-Qur'aniyy Mangkuyudan, Surakarta</div>
+                                <div className="editable color-accent h4 mb-2 font-weight-bold" style={{ fontSize: '16px' }}>{weddingConfig.groom.fullName}</div>
+                                <div className="editable" style={{ fontSize: '14.4px', whiteSpace: 'pre-wrap' }}>{weddingConfig.groom.parents}</div>
                               </div>
                               <div className="my-3 editable text-center color-accent reveal-scale reveal-d4 font-italic font-accent" style={{ fontSize: '14px', color: 'rgb(164, 124, 28)' }}>dengan</div>
                               <div className="text-center reveal-right reveal-d5" style={{ position: 'relative' }}>
-                                <div className="editable color-accent h4 mb-2 font-weight-bold" style={{ fontSize: '16px' }}>Hitna Faizatul Mustofi</div>
-                                <div className="editable mb-1" style={{ fontSize: '14.4px' }}>Putri dari<br />Bapak Mugni Labib<br />&amp; Ibu Kodriyah<br />Gemantar, Mondokan, Sragen</div>
+                                <div className="editable color-accent h4 mb-2 font-weight-bold" style={{ fontSize: '16px' }}>{weddingConfig.bride.fullName}</div>
+                                <div className="editable mb-1" style={{ fontSize: '14.4px', whiteSpace: 'pre-wrap' }}>{weddingConfig.bride.parents}</div>
                               </div>
                             </div>
                           </div>
@@ -227,19 +228,19 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             <div className="text-center mb-3">
                               <div className="editable color-accent h4 mb-2 reveal-top reveal-d2 font-accent" style={{ fontSize: '30px' }}>Akad Nikah<br />sudah terlaksana pada :</div>
                               <div className="my-3 d-flex flex-row justify-content-center align-items-center reveal-scale reveal-d1">
-                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>Ahad</div>
+                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>{weddingConfig.akad.dayName}</div>
                                 <div style={{ borderLeft: '2px solid var(--inv-accent)', borderRight: '2px solid var(--inv-accent)' }} className="px-3">
-                                  <div className="editable" style={{ fontSize: '38px', lineHeight: 1 }}>20</div>
-                                  <div className="editable" style={{ fontSize: '18px' }}>2025</div>
+                                  <div className="editable" style={{ fontSize: '38px', lineHeight: 1 }}>{weddingConfig.akad.dateStr}</div>
+                                  <div className="editable" style={{ fontSize: '18px' }}>{weddingConfig.akad.yearStr}</div>
                                 </div>
-                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>April</div>
+                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>{weddingConfig.akad.monthStr}</div>
                               </div>
-                              <div className="editable reveal-top reveal-d2" style={{ fontSize: '18px' }}>Pukul 09.00 WIB</div>
+                              <div className="editable reveal-top reveal-d2" style={{ fontSize: '18px' }}>{weddingConfig.akad.time}</div>
                             </div>
                             <div className="text-center">
                               <div className="editable font-accent color-accent reveal-bottom reveal-d3" style={{ fontSize: '18px' }}>Lokasi Acara</div>
-                              <div className="editable font-weight-bold reveal-bottom reveal-d3" style={{ fontSize: '14.4px' }}>Rumah Mempelai Wanita</div>
-                              <div className="editable mb-4 reveal-bottom reveal-d3" style={{ fontSize: '14.4px' }}>Cranggang, RT. 27 / RW. 00, Gemantar, Mondokan, Sragen</div>
+                              <div className="editable font-weight-bold reveal-bottom reveal-d3" style={{ fontSize: '14.4px' }}>{weddingConfig.akad.locationName}</div>
+                              <div className="editable mb-4 reveal-bottom reveal-d3" style={{ fontSize: '14.4px' }}>{weddingConfig.akad.address}</div>
                             </div>
                           </div>
                         </div>
@@ -260,22 +261,22 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                         <div key={slideKey} className="d-flex justify-content-center align-items-center" style={{ height: '100%' }}>
                           <div style={{ width: '100%' }}>
                             <div className="text-center mb-3">
-                              <div className="editable color-accent h4 mb-2 reveal-top reveal-d2 font-accent" style={{ fontSize: '40px' }}>Ngunduh Mantu</div>
+                              <div className="editable color-accent h4 mb-2 reveal-top reveal-d2 font-accent" style={{ fontSize: '40px' }}>{weddingConfig.resepsi.title}</div>
                               <div className="my-3 d-flex flex-row justify-content-center align-items-center reveal-scale reveal-d1">
-                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>Senin</div>
+                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>{weddingConfig.resepsi.dayName}</div>
                                 <div style={{ borderLeft: '2px solid var(--inv-accent)', borderRight: '2px solid var(--inv-accent)' }} className="px-3">
-                                  <div className="editable" style={{ fontSize: '38px', lineHeight: 1 }}>12</div>
-                                  <div className="editable" style={{ fontSize: '18px' }}>2025</div>
+                                  <div className="editable" style={{ fontSize: '38px', lineHeight: 1 }}>{weddingConfig.resepsi.dateStr}</div>
+                                  <div className="editable" style={{ fontSize: '18px' }}>{weddingConfig.resepsi.yearStr}</div>
                                 </div>
-                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>Mei</div>
+                                <div className="editable" style={{ fontSize: '25px', width: '100px' }}>{weddingConfig.resepsi.monthStr}</div>
                               </div>
-                              <div className="editable reveal-top reveal-d2" style={{ fontSize: '18px' }}>Pukul 09.00 WIB ~ Selesai</div>
+                              <div className="editable reveal-top reveal-d2" style={{ fontSize: '18px' }}>{weddingConfig.resepsi.time}</div>
                             </div>
                             <div className="text-center">
                               <div className="editable font-accent color-accent reveal-bottom reveal-d3" style={{ fontSize: '18px' }}>Lokasi Acara</div>
-                              <div className="editable font-weight-bold reveal-bottom reveal-d3" style={{ fontSize: '18px' }}>Gedung Graha Setyowati</div>
-                              <div className="editable mb-4 reveal-bottom reveal-d3" style={{ fontSize: '14.4px' }}>Jl. Mangesti Raya, Gentan, Kec. Baki, Kab. Sukoharjo, Jawa Tengah</div>
-                              <a href="https://maps.app.goo.gl/G8o9GBpGgmSq6HhHA" target="_blank" className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" rel="noreferrer noopener">Link Google Maps</a>
+                              <div className="editable font-weight-bold reveal-bottom reveal-d3" style={{ fontSize: '18px' }}>{weddingConfig.resepsi.locationName}</div>
+                              <div className="editable mb-4 reveal-bottom reveal-d3" style={{ fontSize: '14.4px' }}>{weddingConfig.resepsi.address}</div>
+                              <a href={weddingConfig.resepsi.mapLink} target="_blank" className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" rel="noreferrer noopener">Link Google Maps</a>
                             </div>
                           </div>
                         </div>
@@ -303,7 +304,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                           <div style={{ width: '100%' }}>
                             <div className="text-center color-accent h4 mb-4 editable reveal-top reveal-d2 font-accent" style={{ fontSize: '21.6px' }}>Menghitung Hari</div>
                             <div className="countdown-wrapper mx-auto mb-5 d-flex flex-column reveal-bottom reveal-d3" style={{ maxWidth: '280px', minWidth: '280px' }}>
-                              <Countdown targetDate="2025-05-12T09:00:00" />
+                              <Countdown targetDate={weddingConfig.countdownTarget} />
                             </div>
                             <div>
                               <div className="text-center">
@@ -339,9 +340,9 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                                 </div>
                               </div>
                               <div className="text-center reveal-bottom reveal-d3">
-                                <div className="editable color-accent font-weight-bold" style={{ fontSize: '20px' }}>Gedung Graha Setyowati</div>
-                                <div className="editable mb-3 font-italic" style={{ fontSize: '15px' }}>Jl. Mangesti Raya, Gentan, Kec. Baki,<br />Kab. Sukoharjo, Jawa Tengah</div>
-                                <a href="https://maps.app.goo.gl/jJtFJwg39cadS74k7" target="_blank" rel="nofollow noreferrer noopener" className="link btn btn-primary mb-4 reveal-bottom reveal-d3" style={{ borderRadius: '0.3rem' }}>Petunjuk Ke Lokasi</a>
+                                <div className="editable color-accent font-weight-bold" style={{ fontSize: '20px' }}>{weddingConfig.resepsi.locationName}</div>
+                                <div className="editable mb-3 font-italic" style={{ fontSize: '15px' }}>{weddingConfig.resepsi.address}</div>
+                                <a href={weddingConfig.resepsi.mapLink} target="_blank" rel="nofollow noreferrer noopener" className="link btn btn-primary mb-4 reveal-bottom reveal-d3" style={{ borderRadius: '0.3rem' }}>Petunjuk Ke Lokasi</a>
                               </div>
                             </div>
                           </div>
@@ -388,18 +389,18 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             
                             <div className="text-center reveal-bottom reveal-d3 mb-4">
                               <div className="image-editable reveal-bottom reveal-d3" style={{ height: '100px', width: '100px', margin: 'auto', borderRadius: '100%', overflow: 'hidden', marginBottom: '10px' }}>
-                                <img src="/assets/imam.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Imam" />
+                                <img src={weddingConfig.contacts[0].photo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={weddingConfig.contacts[0].name} />
                               </div>
-                              <div className="editable color-accent h4 mb-2 reveal-bottom reveal-d3 font-accent" style={{ fontSize: '21.6px' }}>Imam</div>
-                              <a className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" href="https://wa.me/6285702255215" target="_blank" rel="noreferrer noopener">WA 0857-0225-5215</a>
+                              <div className="editable color-accent h4 mb-2 reveal-bottom reveal-d3 font-accent" style={{ fontSize: '21.6px' }}>{weddingConfig.contacts[0].name}</div>
+                              <a className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" href={weddingConfig.contacts[0].waLink} target="_blank" rel="noreferrer noopener">WA {weddingConfig.contacts[0].phone}</a>
                             </div>
 
                             <div className="text-center reveal-bottom reveal-d3">
                               <div className="image-editable reveal-bottom reveal-d3" style={{ height: '100px', width: '100px', margin: 'auto', borderRadius: '100%', overflow: 'hidden', marginBottom: '10px' }}>
-                                <img src="/assets/hitna.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Hitna" />
+                                <img src={weddingConfig.contacts[1].photo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={weddingConfig.contacts[1].name} />
                               </div>
-                              <div className="editable color-accent h4 mb-2 reveal-bottom reveal-d3 font-accent" style={{ fontSize: '21.6px' }}>Hitna</div>
-                              <a className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" href="https://wa.me/6281215804693" target="_blank" rel="noreferrer noopener">WA 0812-1580-4693</a>
+                              <div className="editable color-accent h4 mb-2 reveal-bottom reveal-d3 font-accent" style={{ fontSize: '21.6px' }}>{weddingConfig.contacts[1].name}</div>
+                              <a className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" href={weddingConfig.contacts[1].waLink} target="_blank" rel="noreferrer noopener">WA {weddingConfig.contacts[1].phone}</a>
                             </div>
                           </div>
                         </div>
@@ -420,8 +421,8 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                         <div key={slideKey} className="watermark d-flex flex-column align-items-center justify-content-center" style={{ height: '100%' }}>
                           <div style={{ border: '3px solid var(--inv-border)', padding: '0.1rem', borderRadius: '1.3rem' }} className="reveal-scale reveal-d1 mb-4">
                             <div className="d-flex justify-content-center" style={{ border: '2px solid var(--inv-border)', borderRadius: '1rem', maxWidth: '65px', padding: '20px 5px' }}>
-                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(10px, -10px)' }}>i</div>
-                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(-10px, 10px)' }}>h</div>
+                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(10px, -10px)' }}>{weddingConfig.groom.initial}</div>
+                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(-10px, 10px)' }}>{weddingConfig.bride.initial}</div>
                             </div>
                           </div>
 
@@ -429,15 +430,15 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             <div className="text-center">
                               <div className="editable mb-3 reveal-top reveal-d2" style={{ fontSize: '14px' }}>Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu kepada kedua mempelai.</div>
                               <div className="editable font-italic reveal-top reveal-d2" style={{ fontSize: '14px' }}>Hormat Kami Yang Mengundang</div>
-                              <div className="editable h4 color-accent reveal-top reveal-d2 font-accent" style={{ fontSize: '30px' }}>Imam &amp; Hitna</div>
+                              <div className="editable h4 color-accent reveal-top reveal-d2 font-accent" style={{ fontSize: '30px' }}>{weddingConfig.groom.nickname} &amp; {weddingConfig.bride.nickname}</div>
                             </div>
                           </div>
                           
-                          <div className="mt-5">
-                            <p className="mb-1 reveal-bottom reveal-d3 small animate__delay-1s">Made With ♥ by Ruang Invitation</p>
-                            <div className="text-center reveal-bottom reveal-d3 animate__delay-1s">
-                              <a className="d-block mx-auto" href="https://inv.ruanginvi.com" target="_blank" rel="noopener noreferrer" style={{ width: '100px', height: '40px' }}>
-                                <img height="40" width="100" className="h-100 w-100" style={{ objectFit: 'contain' }} src="/assets/watermark.jpg" alt="Ruang Invitation" />
+                          <div className="mt-5 text-center">
+                            <p className="mb-1 reveal-bottom reveal-d3 small animate__delay-1s">Made With ♥ by</p>
+                            <div className="reveal-bottom reveal-d3 animate__delay-1s">
+                              <a className="d-block mx-auto font-weight-bold color-accent font-accent" href="#" target="_blank" rel="noopener noreferrer" style={{ fontSize: '24px', textDecoration: 'none' }}>
+                                Linvitation station
                               </a>
                             </div>
                             <div className="wm-music mt-3 text-center reveal-bottom reveal-d3 animate__delay-1s" style={{ fontSize: '60%' }}>

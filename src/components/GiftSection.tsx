@@ -1,24 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
+import { weddingConfig } from '@/lib/weddingConfig';
 
 export default function GiftSection() {
   const [activeTab, setActiveTab] = useState<'cashless' | 'gift' | null>(null);
 
-  const accounts = [
-    {
-      bank: 'BNI',
-      number: '1415003163',
-      name: 'Muchammad Imam Bajuri',
-      logo: '/assets/bni-logo.png',
-    },
-    {
-      bank: 'BCA',
-      number: '015-467-7433',
-      name: 'Muchammad Imam Bajuri',
-      logo: '/assets/bca-logo.png',
-    },
-  ];
+  const accounts = weddingConfig.cashlessAccounts;
 
   return (
     <>
@@ -63,11 +51,9 @@ export default function GiftSection() {
         <div className="gift-container mt-3 p-4 rounded reveal-scale reveal-d4">
           <div className="text-center mb-2">
             <div className="editable font-weight-bold h5 color-accent mb-2">Kirim Kado</div>
-            <div className="editable mb-0" style={{ fontSize: '14.4px' }}>
+            <div className="editable mb-0" style={{ fontSize: '14.4px', whiteSpace: 'pre-wrap' }}>
               Anda dapat mengirim kado ke:<br />
-              PP. Al-Qur'aniyy Mangkuyudan<br />
-              Jl. KH. Samanhudi, No. 64B, RT. 02 / RW. 06,<br />
-              Todipan, Purwosari, Laweyan, Surakarta
+              {weddingConfig.giftAddress}
             </div>
           </div>
         </div>

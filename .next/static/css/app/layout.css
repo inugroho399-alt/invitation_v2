@@ -917,6 +917,75 @@ html, body, #app, #workspace-container, #panZoom {
 .reveal-d4 { animation-delay: 0.55s; }
 .reveal-d5 { animation-delay: 0.7s; }
 .reveal-d6 { animation-delay: 0.85s; }
+
+/* =============================================
+   Custom RSVP Modal (Replaces Broken Bootstrap)
+   ============================================= */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2000;
+}
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 2010;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.modal-dialog {
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}
+.modal-content {
+  background-color: var(--inv-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 2px solid var(--inv-border);
+  position: relative;
+}
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 0.8rem;
+  border: 1px solid var(--inv-border);
+  background-color: rgba(255,255,255,0.05);
+  color: var(--inv-base);
+  font-family: inherit;
+  margin-bottom: 5px;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--inv-accent);
+}
+.btn-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: var(--inv-accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.btn-close svg {
+  width: 20px; height: 20px;
+}
+.comments-section {
+  margin-top: 20px;
+  border-top: 1px dashed var(--inv-border);
+  padding-top: 15px;
+}
 .selection\:bg-\[\#B6A38B\] *::-moz-selection{
   --tw-bg-opacity: 1;
   background-color: rgb(182 163 139 / var(--tw-bg-opacity, 1));
