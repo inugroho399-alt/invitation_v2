@@ -759,18 +759,36 @@ html, body, #app, #workspace-container, #panZoom {
   position: relative;
   overflow: hidden;
   background-color: var(--inv-bg);
+  display: flex;
+  flex-direction: column;
 }
 
+/* Mobile Devices (360px - 430px) */
 @media (max-width: 768px) {
   .canvas {
     max-width: 100vw !important;
+    height: 100dvh !important;
+    border-radius: 0 !important;
   }
 }
 
+/* Tablet & Desktop (Floating Mobile Mockup) */
 @media (min-width: 769px) {
+  #workspace-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a100f; /* Dark premium background for desktop */
+  }
+  
   .canvas {
-    max-width: 414px !important;
-    box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    max-width: 414px !important; /* Max width of iPhone Max */
+    height: 90vh !important;
+    max-height: 896px !important;
+    margin: auto !important;
+    border-radius: 36px !important; /* Sleek rounded corners */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 10px rgba(255,255,255,0.05); /* Outer border glow */
+    border: 1px solid rgba(255,255,255,0.1);
   }
 }
 
@@ -786,9 +804,11 @@ html, body, #app, #workspace-container, #panZoom {
   padding: 0 !important;
 }
 
-@media (max-width: 414px) {
-  .canvas {
-    box-shadow: none;
+/* Ensure bottom menu fits inside the rounded canvas on desktop */
+@media (min-width: 769px) {
+  .satumomen_menu {
+    border-bottom-left-radius: 36px !important;
+    border-bottom-right-radius: 36px !important;
   }
 }
 
