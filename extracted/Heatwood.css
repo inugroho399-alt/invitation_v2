@@ -1,0 +1,3 @@
+@charset "utf-8";
+
+@font-face { font-family: Heatwood; src: url("fonts/Heatwood.woff2") format("woff2"), url("fonts/Heatwood.woff") format("woff"), url("fonts/Heatwood.ttf") format("truetype"); }

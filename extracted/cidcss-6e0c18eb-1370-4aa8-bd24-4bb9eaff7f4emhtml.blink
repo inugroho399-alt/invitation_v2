@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700&family=Homemade+Apple&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root { --inv-bg: #2b1b19; --inv-base: #B6A38B; --inv-accent: #B6A38B; --inv-border: #B6A38B; --font-base: 'Playfair Display', serif; --font-accent: 'Grenze Gotisch', cursive; --font-latin: 'Million Dreams', cursive; --menu-bg: #271b19; --menu-inactive: #e3cfbe; --menu-active: #66353d; --btn-color: #2b1b19; }
+
+.satumomen_menu .satumomen_menu_item.active { color: var(--menu-inactive) !important; }
+
+.frame-out { display: none; }
+
+.cover .frame-out { display: block; }
+
+.editor-wrapper .frame-out { display: none; }
