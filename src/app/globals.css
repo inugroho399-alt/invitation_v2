@@ -169,14 +169,26 @@ html, body, #app, #workspace-container, #panZoom {
   color: var(--menu-inactive);
   max-width: 20%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0.6;
+}
+
+.satumomen_menu_item:hover {
+  opacity: 1;
+  transform: translateY(-3px) scale(1.05);
+  color: var(--inv-accent) !important;
 }
 
 .satumomen_menu_item svg {
   margin-bottom: 2px;
   width: 22px; /* Clear icon size */
   height: 22px;
+  transition: transform 0.4s ease;
+}
+
+.satumomen_menu_item:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(182, 163, 139, 0.4));
 }
 
 .satumomen_menu_item span {
@@ -188,6 +200,31 @@ html, body, #app, #workspace-container, #panZoom {
   color: var(--menu-inactive) !important;
   opacity: 1;
   transform: scale(1.1);
+}
+
+/* Smooth Button Hover Effects */
+.btn-primary {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(182, 163, 139, 0.3) !important;
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+a.link {
+  transition: all 0.3s ease;
+}
+a.link:hover {
+  opacity: 0.8;
+  text-shadow: 0 0 8px rgba(182, 163, 139, 0.5);
 }
 
 /* =============================================

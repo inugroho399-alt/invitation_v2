@@ -520,6 +520,12 @@ video {
 .relative{
   position: relative;
 }
+.inset-0{
+  inset: 0px;
+}
+.inset-2{
+  inset: 0.5rem;
+}
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -564,20 +570,51 @@ video {
 .hidden{
   display: none;
 }
-.h-10{
-  height: 2.5rem;
+.h-2{
+  height: 0.5rem;
+}
+.h-24{
+  height: 6rem;
 }
 .min-h-screen{
   min-height: 100vh;
 }
-.w-10{
-  width: 2.5rem;
+.w-2{
+  width: 0.5rem;
+}
+.w-24{
+  width: 6rem;
 }
 .w-full{
   width: 100%;
 }
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+@keyframes bounce{
+
+  0%, 100%{
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50%{
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+.animate-bounce{
+  animation: bounce 1s infinite;
+}
+@keyframes ping{
+
+  75%, 100%{
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.animate-ping{
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 @keyframes pulse{
 
@@ -587,15 +624,6 @@ video {
 }
 .animate-pulse{
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-@keyframes spin{
-
-  to{
-    transform: rotate(360deg);
-  }
-}
-.animate-spin{
-  animation: spin 1s linear infinite;
 }
 .flex-row{
   flex-direction: row;
@@ -609,8 +637,14 @@ video {
 .justify-center{
   justify-content: center;
 }
-.gap-4{
-  gap: 1rem;
+.gap-1{
+  gap: 0.25rem;
+}
+.gap-2{
+  gap: 0.5rem;
+}
+.gap-6{
+  gap: 1.5rem;
 }
 .rounded{
   border-radius: 0.25rem;
@@ -621,19 +655,23 @@ video {
 .border{
   border-width: 1px;
 }
-.border-4{
-  border-width: 4px;
+.border-\[2px\]{
+  border-width: 2px;
+}
+.border-\[3px\]{
+  border-width: 3px;
 }
 .border-\[\#B6A38B\]{
   --tw-border-opacity: 1;
   border-color: rgb(182 163 139 / var(--tw-border-opacity, 1));
 }
-.border-t-transparent{
-  border-top-color: transparent;
-}
 .bg-\[\#2b1b19\]{
   --tw-bg-opacity: 1;
   background-color: rgb(43 27 25 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#B6A38B\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(182 163 139 / var(--tw-bg-opacity, 1));
 }
 .bg-white{
   --tw-bg-opacity: 1;
@@ -667,9 +705,16 @@ video {
 .font-accent{
   font-family: var(--font-grenze), serif;
 }
-.text-sm{
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.font-bold{
+  font-weight: 700;
 }
 .tracking-widest{
   letter-spacing: 0.1em;
@@ -688,6 +733,12 @@ video {
 }
 .opacity-0{
   opacity: 0;
+}
+.opacity-20{
+  opacity: 0.2;
+}
+.opacity-50{
+  opacity: 0.5;
 }
 .transition{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -860,14 +911,26 @@ html, body, #app, #workspace-container, #panZoom {
   color: var(--menu-inactive);
   max-width: 20%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0.6;
+}
+
+.satumomen_menu_item:hover {
+  opacity: 1;
+  transform: translateY(-3px) scale(1.05);
+  color: var(--inv-accent) !important;
 }
 
 .satumomen_menu_item svg {
   margin-bottom: 2px;
   width: 22px; /* Clear icon size */
   height: 22px;
+  transition: transform 0.4s ease;
+}
+
+.satumomen_menu_item:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(182, 163, 139, 0.4));
 }
 
 .satumomen_menu_item span {
@@ -879,6 +942,31 @@ html, body, #app, #workspace-container, #panZoom {
   color: var(--menu-inactive) !important;
   opacity: 1;
   transform: scale(1.1);
+}
+
+/* Smooth Button Hover Effects */
+.btn-primary {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(182, 163, 139, 0.3) !important;
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+a.link {
+  transition: all 0.3s ease;
+}
+a.link:hover {
+  opacity: 0.8;
+  text-shadow: 0 0 8px rgba(182, 163, 139, 0.5);
 }
 
 /* =============================================
