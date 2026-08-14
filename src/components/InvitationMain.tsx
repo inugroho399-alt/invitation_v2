@@ -101,6 +101,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                           <img 
                             src="/assets/door-left.png" 
                             alt="frame" 
+                            fetchPriority="high"
                             style={{ 
                               display: 'block', 
                               position: 'absolute', 
@@ -116,6 +117,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                           <img 
                             src="/assets/door-right.png" 
                             alt="frame" 
+                            fetchPriority="high"
                             style={{ 
                               display: 'block', 
                               position: 'absolute', 
@@ -133,7 +135,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                           <div style={{ width: '100%' }}>
                             <div className={`text-center editable mb-4 ${contentVisible ? 'reveal-top reveal-d1' : 'opacity-0'}`} style={{ fontSize: '20px' }}>{weddingConfig.resepsi.dayName}<br />{weddingConfig.resepsi.dateStr} {weddingConfig.resepsi.monthStr} {weddingConfig.resepsi.yearStr}</div>
                             <div className={`text-center mb-3 image-editable ${contentVisible ? 'reveal-scale reveal-d2' : 'opacity-0'}`}>
-                              <img src="/assets/couple-graphic.png" className="mx-auto d-block" style={{ width: '70%' }} alt="couple" />
+                              <img src="/assets/couple-graphic.png" width="200" height="200" loading="eager" fetchPriority="high" className="mx-auto d-block" style={{ width: '70%', height: 'auto' }} alt="couple" />
                             </div>
                             <div className={`text-center mb-5 ${contentVisible ? 'reveal-bottom reveal-d3' : 'opacity-0'}`}>
                               <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px' }}>{weddingConfig.groom.nickname} &amp; {weddingConfig.bride.nickname}</div>
@@ -336,7 +338,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             <div>
                               <div className="p-1 mb-3 reveal-scale reveal-d4" style={{ borderRadius: '2.5rem', overflow: 'hidden', position: 'relative', border: '4px solid var(--inv-base)' }}>
                                 <div className="image-editable reveal-top reveal-d2" style={{ width: '100%', margin: 'auto', borderRadius: '2rem', overflow: 'hidden', paddingBottom: '70%', position: 'relative', border: '2px solid var(--inv-base)' }}>
-                                  <img src="/assets/maps-preview.jpg" className="w-100 h-100" style={{ position: 'absolute', objectFit: 'cover' }} alt="maps" />
+                                  <img src="/assets/maps-preview.jpg" loading="lazy" width="300" height="210" className="w-100 h-100" style={{ position: 'absolute', objectFit: 'cover' }} alt="maps" />
                                 </div>
                               </div>
                               <div className="text-center reveal-bottom reveal-d3">
@@ -389,7 +391,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             
                             <div className="text-center reveal-bottom reveal-d3 mb-4">
                               <div className="image-editable reveal-bottom reveal-d3" style={{ height: '100px', width: '100px', margin: 'auto', borderRadius: '100%', overflow: 'hidden', marginBottom: '10px' }}>
-                                <img src={weddingConfig.contacts[0].photo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={weddingConfig.contacts[0].name} />
+                                <img src={weddingConfig.contacts[0].photo} loading="lazy" width="100" height="100" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={weddingConfig.contacts[0].name} />
                               </div>
                               <div className="editable color-accent h4 mb-2 reveal-bottom reveal-d3 font-accent" style={{ fontSize: '21.6px' }}>{weddingConfig.contacts[0].name}</div>
                               <a className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" href={weddingConfig.contacts[0].waLink} target="_blank" rel="noreferrer noopener">WA {weddingConfig.contacts[0].phone}</a>
@@ -397,7 +399,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
 
                             <div className="text-center reveal-bottom reveal-d3">
                               <div className="image-editable reveal-bottom reveal-d3" style={{ height: '100px', width: '100px', margin: 'auto', borderRadius: '100%', overflow: 'hidden', marginBottom: '10px' }}>
-                                <img src={weddingConfig.contacts[1].photo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={weddingConfig.contacts[1].name} />
+                                <img src={weddingConfig.contacts[1].photo} loading="lazy" width="100" height="100" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={weddingConfig.contacts[1].name} />
                               </div>
                               <div className="editable color-accent h4 mb-2 reveal-bottom reveal-d3 font-accent" style={{ fontSize: '21.6px' }}>{weddingConfig.contacts[1].name}</div>
                               <a className="link btn btn-primary rounded-pill reveal-bottom reveal-d3" href={weddingConfig.contacts[1].waLink} target="_blank" rel="noreferrer noopener">WA {weddingConfig.contacts[1].phone}</a>

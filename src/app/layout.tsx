@@ -35,7 +35,14 @@ export default function RootLayout({
   return (
     <html lang="id" className="notranslate" translate="no">
       <head>
+        <link rel="preconnect" href="https://assets.satumomen.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://assets.satumomen.com" />
+        
         <link rel="icon" type="image/png" href="/assets/watermark.jpg" />
+        <link rel="preload" href="/assets/bg.jpg" as="image" />
+        <link rel="preload" href="/assets/door-left.png" as="image" />
+        <link rel="preload" href="/assets/door-right.png" as="image" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
         <link rel="stylesheet" href="https://assets.satumomen.com/build/assets/bootstrap-vCaDZZbr.css" />
