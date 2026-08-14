@@ -26,6 +26,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
 
   const lastScrollTime = useRef(0);
   const touchStartY = useRef(0);
+  const navListRef = useRef<HTMLUListElement>(null);
   const MAX_SLIDES = 9;
 
   const navigateToNextSlide = () => {
@@ -95,6 +96,26 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [isOpened, isRsvpOpen]);
+
+  // Precisely scroll the nav bar so the active item is centered, without over-shooting on edges
+  useEffect(() => {
+    const nav = navListRef.current;
+    if (!nav) return;
+
+    const activeEl = nav.children[activeSlide] as HTMLElement;
+    if (!activeEl) return;
+
+    const navWidth = nav.offsetWidth;
+    const itemOffsetLeft = activeEl.offsetLeft;
+    const itemWidth = activeEl.offsetWidth;
+    const targetScroll = itemOffsetLeft - navWidth / 2 + itemWidth / 2;
+    const maxScroll = nav.scrollWidth - navWidth;
+
+    nav.scrollTo({
+      left: Math.max(0, Math.min(targetScroll, maxScroll)),
+      behavior: 'smooth',
+    });
+  }, [activeSlide]);
 
   useEffect(() => {
     if (!isOpened) {
@@ -524,7 +545,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                 </div>
 
                 <div id="smMenu" className="satumomen_menu" style={{ display: isOpened ? 'block' : 'none' }}>
-                  <ul className="satumomen_menu_list">
+                  <ul ref={navListRef} className="satumomen_menu_list">
                     <li className={navItemClass(0)} onClick={() => { 
                       if (activeSlide === 0) return;
                       setDoorsOpen(false); 
