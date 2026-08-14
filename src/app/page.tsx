@@ -21,8 +21,8 @@ function InvitationLoader() {
     };
     loadData();
 
-    // Show elegant loader for exactly 1.2 seconds just for aesthetic feel
-    const timer = setTimeout(() => setShowLoader(false), 1200);
+    // Show elegant loader for 600ms for a snappy, premium intro feel
+    const timer = setTimeout(() => setShowLoader(false), 600);
     return () => clearTimeout(timer);
   }, []);
 

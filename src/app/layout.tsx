@@ -46,10 +46,13 @@ export default function RootLayout({
   return (
     <html lang="id" className="notranslate" translate="no">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://assets.satumomen.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://assets.satumomen.com" />
         
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700&family=Homemade+Apple&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
         <link rel="icon" type="image/png" href="/assets/watermark.jpg" />
         <link rel="preload" href="/assets/bg.jpg" as="image" />
         <link rel="preload" href="/assets/door-left.png" as="image" />

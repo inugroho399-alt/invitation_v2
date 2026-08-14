@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700&family=Homemade+Apple&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://inv.ruanginvi.com/fonts/brittany_signature/BrittanySignature.css');
-@import url('https://inv.ruanginvi.com/fonts/photograph_signature/fonts.css');
-@import url('https://inv.ruanginvi.com/fonts/heatwood/Heatwood.css');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +9,7 @@
     --inv-border: #B6A38B;
     --font-base: 'Playfair Display', serif;
     --font-accent: 'Grenze Gotisch', cursive;
-    --font-latin: 'Million Dreams', cursive;
+    --font-latin: 'Homemade Apple', cursive;
     --menu-bg: #271b19;
     --menu-inactive: #e3cfbe;
     --menu-active: #66353d;
