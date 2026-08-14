@@ -68,8 +68,6 @@ html, body, #app, #workspace-container, #panZoom {
   position: relative;
   overflow: hidden;
   background-color: var(--inv-bg);
-  display: flex;
-  flex-direction: column;
 }
 
 /* Mobile Devices (360px - 430px) */
@@ -104,6 +102,9 @@ html, body, #app, #workspace-container, #panZoom {
 .container-mobile {
   width: 100% !important;
   height: 100% !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #satuMomen, .satumomen_track, .satumomen_list, .satumomen_slide {
