@@ -389,8 +389,8 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                         <div key={slideKey} className="d-flex flex-column justify-content-center align-items-center" style={{ height: '100%' }}>
                           <div className="reveal-scale reveal-d1 mb-4" style={{ border: '3px solid var(--inv-border)', padding: '0.1rem', borderRadius: '1.3rem' }}>
                             <div className="d-flex justify-content-center" style={{ border: '2px solid var(--inv-border)', borderRadius: '1rem', maxWidth: '65px', padding: '20px 5px' }}>
-                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(10px, -10px)' }}>i</div>
-                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(-10px, 10px)' }}>h</div>
+                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(10px, -10px)' }}>{weddingConfig.groom.initial}</div>
+                              <div className="editable color-accent h3 mb-0 font-accent" style={{ fontSize: '40px', transform: 'translate(-10px, 10px)' }}>{weddingConfig.bride.initial}</div>
                             </div>
                           </div>
                           <div style={{ width: '100%' }}>
