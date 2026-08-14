@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { weddingConfig } from '@/lib/weddingConfig';
 
 interface MusicPlayerProps {
   isPlaying: boolean;
@@ -9,10 +10,11 @@ interface MusicPlayerProps {
 
 export default function MusicPlayer({ isPlaying, onToggle }: MusicPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('https://assets.satumomen.com/musics/y2metaapp-java-instrument-128-kbps.mp3');
+      audioRef.current = new Audio(weddingConfig.metadata.musicUrl);
       audioRef.current.loop = true;
     }
 

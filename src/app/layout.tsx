@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { weddingConfig } from '@/lib/weddingConfig';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -8,22 +9,31 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
+const title = `The Wedding of ${weddingConfig.groom.nickname} & ${weddingConfig.bride.nickname}`;
+const description = `Tanpa Mengurangi Rasa Hormat. Kami Bermaksud Mengundang Bapak/Ibu/Saudara/i, Pada Acara ${weddingConfig.resepsi.title} Pernikahan Kami.`;
+
 export const metadata: Metadata = {
-  title: 'The Wedding of Imam & Hitna',
-  description: 'Tanpa Mengurangi Rasa Hormat. Kami Bermaksud Mengundang Bapak/Ibu/Saudara/i, Pada Acara Ngunduh Mantu Pernikahan Kami.',
+  title,
+  description,
   openGraph: {
-    title: 'The Wedding of Imam & Hitna',
-    description: 'Tanpa Mengurangi Rasa Hormat. Kami Bermaksud Mengundang Bapak/Ibu/Saudara/i, Pada Acara Ngunduh Mantu Pernikahan Kami.',
-    url: 'https://inv.ruanginvi.com/imam-and-hitna',
+    title,
+    description,
+    url: weddingConfig.metadata.url,
     type: 'website',
     images: [
       {
-        url: 'https://assets.satumomen.com/images/invitation/cover-5305701744812750.jpg',
+        url: weddingConfig.metadata.ogImage,
         width: 1200,
         height: 630,
-        alt: 'The Wedding of Imam & Hitna',
+        alt: title,
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [weddingConfig.metadata.ogImage],
   },
 };
 

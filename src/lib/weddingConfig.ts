@@ -1,4 +1,11 @@
 export const weddingConfig = {
+  // 0. Metadata SEO & Social Media
+  metadata: {
+    url: 'https://invitation-v2-blue.vercel.app',
+    ogImage: '/assets/bg.jpg', // Ganti dengan URL foto cover tenant
+    musicUrl: 'https://assets.satumomen.com/musics/y2metaapp-java-instrument-128-kbps.mp3', // Ganti dengan URL lagu tenant
+  },
+  
   // 1. Info Pasangan
   groom: {
     nickname: 'Ilham',
