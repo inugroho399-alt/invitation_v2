@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MusicPlayer from './MusicPlayer';
 import Countdown from './Countdown';
 import RSVPModal from './RSVPModal';
@@ -23,6 +23,78 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
   const [doorsOpen, setDoorsOpen] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
   const [slideKey, setSlideKey] = useState(0);
+
+  const lastScrollTime = useRef(0);
+  const touchStartY = useRef(0);
+  const MAX_SLIDES = 9;
+
+  const navigateToNextSlide = () => {
+    setActiveSlide((prev) => {
+      if (prev >= MAX_SLIDES) return prev;
+      setSlideKey((k) => k + 1);
+      return prev + 1;
+    });
+  };
+
+  const navigateToPrevSlide = () => {
+    setActiveSlide((prev) => {
+      if (prev <= 1) return prev; // Cannot go back to slide 0 (opening)
+      setSlideKey((k) => k + 1);
+      return prev - 1;
+    });
+  };
+
+  useEffect(() => {
+    if (!isOpened) return; // Only allow scrolling if invitation is opened
+
+    const handleWheel = (e: WheelEvent) => {
+      // Prevent scrolling if the RSVP modal is open or the user is scrolling inside a specific div
+      if (isRsvpOpen) return;
+      
+      const now = Date.now();
+      if (now - lastScrollTime.current < 1200) return; // 1.2s cooldown
+
+      if (e.deltaY > 50) {
+        lastScrollTime.current = now;
+        navigateToNextSlide();
+      } else if (e.deltaY < -50) {
+        lastScrollTime.current = now;
+        navigateToPrevSlide();
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (isRsvpOpen) return;
+      
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY.current - touchEndY;
+      
+      const now = Date.now();
+      if (now - lastScrollTime.current < 1200) return;
+
+      if (deltaY > 50) { // Swipe up (scroll down) -> Next
+        lastScrollTime.current = now;
+        navigateToNextSlide();
+      } else if (deltaY < -50) { // Swipe down (scroll up) -> Prev
+        lastScrollTime.current = now;
+        navigateToPrevSlide();
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isOpened, isRsvpOpen]);
 
   useEffect(() => {
     if (!isOpened) {
