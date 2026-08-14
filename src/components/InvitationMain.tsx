@@ -15,7 +15,6 @@ interface InvitationMainProps {
 
 export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMainProps) {
   const [isOpened, setIsOpened] = useState(false);
-  const [isOpening, setIsOpening] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isRsvpOpen, setIsRsvpOpen] = useState(false);
@@ -52,13 +51,10 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
   }, []);
 
   const handleOpenInvitation = () => {
-    setIsOpening(true);
     setIsPlaying(true);
-    setTimeout(() => {
-      setIsOpened(true);
-      setIsOpening(false);
-      setActiveSlide(1);
-    }, 1000);
+    setIsOpened(true);
+    setActiveSlide(1);
+    setSlideKey(k => k + 1); // Trigger entrance animations on the Quotes slide
   };
 
   const handleAddRSVPLocal = async (data: RSVPData) => {
@@ -131,7 +127,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             }} 
                           />
                         </div>
-                        <div className={`d-flex justify-content-center align-items-center ${isOpening ? 'reveal-scale reveal-d1Out' : ''}`} style={{ height: 'calc(100% + 60px)', width: 'calc(100% + 60px)', backgroundSize: 'cover', margin: '-30px', padding: '30px' }}>
+                        <div className="d-flex justify-content-center align-items-center" style={{ height: 'calc(100% + 60px)', width: 'calc(100% + 60px)', backgroundSize: 'cover', margin: '-30px', padding: '30px' }}>
                           <div style={{ width: '100%' }}>
                             <div className={`text-center editable mb-4 ${contentVisible ? 'reveal-top reveal-d1' : 'opacity-0'}`} style={{ fontSize: '20px' }}>{weddingConfig.resepsi.dayName}<br />{weddingConfig.resepsi.dateStr} {weddingConfig.resepsi.monthStr} {weddingConfig.resepsi.yearStr}</div>
                             <div className={`text-center mb-3 image-editable ${contentVisible ? 'reveal-scale reveal-d2' : 'opacity-0'}`}>
