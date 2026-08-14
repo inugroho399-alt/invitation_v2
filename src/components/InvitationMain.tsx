@@ -171,7 +171,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
       
       <div id="workspace-container" className="position-fixed h-100 w-100" style={{ overflow: 'hidden' }}>
         <div id="panZoom" className="position-fixed h-100 w-100" style={{ top: 0, right: 0, bottom: 0, left: 0, transformOrigin: '50% 50%' }}>
-          <div className="h-100 w-100 d-flex align-items-center justify-content-center">
+          <div className="canvas-wrapper h-100 w-100 d-flex align-items-center justify-content-center">
             <div className={`canvas ${!isOpened ? 'not-open' : ''}`}>
               <MusicPlayer isPlaying={isPlaying} onToggle={(play) => setIsPlaying(play)} />
               <div id="satuMomen" data-guest={guestName} data-group="">

@@ -7,6 +7,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  viewportFit: 'cover',
 };
 
 const title = `The Wedding of ${weddingConfig.groom.nickname} & ${weddingConfig.bride.nickname}`;
