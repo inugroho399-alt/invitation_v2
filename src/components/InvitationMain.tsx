@@ -428,7 +428,7 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                             <div>
                               <div className="p-1 mb-3 reveal-scale reveal-d4" style={{ borderRadius: '2.5rem', overflow: 'hidden', position: 'relative', border: '4px solid var(--inv-base)' }}>
                                 <div className="image-editable reveal-top reveal-d2" style={{ width: '100%', margin: 'auto', borderRadius: '2rem', overflow: 'hidden', paddingBottom: '70%', position: 'relative', border: '2px solid var(--inv-base)' }}>
-                                  <img src="/assets/maps-preview.jpg" loading="lazy" width="300" height="210" className="w-100 h-100" style={{ position: 'absolute', objectFit: 'cover' }} alt="maps" />
+                                  <img src="/assets/maps-preview.svg" loading="lazy" width="300" height="210" className="w-100 h-100" style={{ position: 'absolute', objectFit: 'cover' }} alt="maps" />
                                 </div>
                               </div>
                               <div className="text-center reveal-bottom reveal-d3">
@@ -529,8 +529,8 @@ export default function InvitationMain({ initialRsvps, onAddRSVP }: InvitationMa
                           <div className="mt-5 text-center">
                             <p className="mb-1 reveal-bottom reveal-d3 small animate__delay-1s">Made With ♥ by</p>
                             <div className="reveal-bottom reveal-d3 animate__delay-1s">
-                              <a className="d-block mx-auto font-weight-bold color-accent font-accent" href="#" target="_blank" rel="noopener noreferrer" style={{ fontSize: '24px', textDecoration: 'none' }}>
-                                Linvitation station
+                              <a className="d-block mx-auto font-weight-bold color-accent font-accent" href="https://www.nikaha.my.id/" target="_blank" rel="noopener noreferrer" style={{ fontSize: '24px', textDecoration: 'none' }}>
+                                Nikaha Invitation
                               </a>
                             </div>
                             <div className="wm-music mt-3 text-center reveal-bottom reveal-d3 animate__delay-1s" style={{ fontSize: '60%' }}>
